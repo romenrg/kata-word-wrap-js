@@ -14,5 +14,17 @@ describe('Wrapper', function () {
         var maxColumn = 14;
         var expectedResult = "This is the\nsecond test,\nwith 3 lines";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
-    })
+    });
+    it('should not be any replacements because it is too small', function() {
+        var testString = "I'm too small";
+        var maxColumn = 14;
+        var expectedResult = "I'm too small";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
+    it('should not be any replacements because there are no blanks', function() {
+        var testString = "Honorificabilitudinitatibus";
+        var maxColumn = 14;
+        var expectedResult = "Honorificabilitudinitatibus";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
 });
