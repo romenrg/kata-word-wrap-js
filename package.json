@@ -1,0 +1,12 @@
+{
+  "name": "KataWordWrapJS",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node Wrapper.js",
+    "test": "mocha ./Wrapper.spec.js"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "chai": "^3.4.1"
+  }
+}
