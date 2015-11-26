@@ -25,6 +25,7 @@ function Wrapper() {
             }
             else {
                 newString = newString.concat(tmpString.substr(0, tmpString.length));
+                finished = true;
             }
         }
         return newString;
