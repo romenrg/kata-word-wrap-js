@@ -9,6 +9,8 @@ From the [original Article by Robert Martin](http://thecleancoder.blogspot.com.e
 
 "[...] like a word processor [...].  You break the line by replacing the last space in a line with a newline."
 
+If there are no spaces and the word is longer than the column number, the word should be split exactly at the column number.
+
 ## Running the program and tests
 
 ### Running the program

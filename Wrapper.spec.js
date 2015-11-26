@@ -21,16 +21,16 @@ describe('Wrapper', function () {
         var expectedResult = "I'm too small";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
-    it('should not be any replacements because there are no blanks', function() {
+    it('should split the word at maxColumn, since there are no spaces', function() {
         var testString = "Honorificabilitudinitatibus";
         var maxColumn = 14;
-        var expectedResult = "Honorificabilitudinitatibus";
+        var expectedResult = "Honorificabili\ntudinitatibus";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
     it('should have three lines, being the one in the middle longer than maxColumn', function() {
         var testString = "This case is Honorificabilitudinitatibus. For sure.";
         var maxColumn = 14;
-        var expectedResult = "This case is\nHonorificabilitudinitatibus.\nFor sure.";
+        var expectedResult = "This case is\nHonorificabili\ntudinitatibus.\nFor sure.";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
 });
