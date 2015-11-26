@@ -27,4 +27,10 @@ describe('Wrapper', function () {
         var expectedResult = "Honorificabilitudinitatibus";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
+    it('should have three lines, being the one in the middle longer than maxColumn', function() {
+        var testString = "This case is Honorificabilitudinitatibus. For sure.";
+        var maxColumn = 14;
+        var expectedResult = "This case is\nHonorificabilitudinitatibus.\nFor sure.";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
 });
