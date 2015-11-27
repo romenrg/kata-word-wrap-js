@@ -39,10 +39,16 @@ describe('Wrapper', function () {
         var expectedResult = "These are your\nfavourites,\nwith 3 lines";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
-    it('should have three lines, being the one in the middle longer than maxColumn', function() {
+    it('should have four lines, being the second longer than maxColumn', function() {
         var testString = "This case is Honorificabilitudinitatibus. For sure.";
         var maxColumn = 14;
         var expectedResult = "This case is\nHonorificabili\ntudinitatibus.\nFor sure.";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
+    it('should keep the short word in the first line, alone', function() {
+        var testString = "Very honorificabilitudinitatibus. For sure.";
+        var maxColumn = 14;
+        var expectedResult = "Very\nhonorificabili\ntudinitatibus.\nFor sure.";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
 });
