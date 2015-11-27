@@ -27,6 +27,18 @@ describe('Wrapper', function () {
         var expectedResult = "Honorificabili\ntudinitatibus";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
+    it('should replace having exactly an space in the boundary', function() {
+        var testString = "This is their favourite, with 3 lines";
+        var maxColumn = 14;
+        var expectedResult = "This is their\nfavourite,\nwith 3 lines";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
+    it('should replace if there is an space after the boundary', function() {
+        var testString = "These are your favourites, with 3 lines";
+        var maxColumn = 14;
+        var expectedResult = "These are your\nfavourites,\nwith 3 lines";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
     it('should have three lines, being the one in the middle longer than maxColumn', function() {
         var testString = "This case is Honorificabilitudinitatibus. For sure.";
         var maxColumn = 14;
