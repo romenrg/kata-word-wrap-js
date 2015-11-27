@@ -1,53 +1,46 @@
 var Wrapper = require('./Wrapper');
 var expect = require('chai').expect;
 
-describe('Wrapper', function () {
+describe('Wrapper Specs', function () {
     var wrapper = new Wrapper();
+    var maxColumn = 14;
     it('should replace the third space with a newline', function() {
         var testString = "This is the first test";
-        var maxColumn = 14;
         var expectedResult = "This is the\nfirst test";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
     it('should do two replacements', function() {
         var testString = "This is the second test, with 3 lines";
-        var maxColumn = 14;
         var expectedResult = "This is the\nsecond test,\nwith 3 lines";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
     it('should not be any replacements because it is too small', function() {
         var testString = "I'm too small";
-        var maxColumn = 14;
         var expectedResult = "I'm too small";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
     it('should split the word at maxColumn, since there are no spaces', function() {
         var testString = "Honorificabilitudinitatibus";
-        var maxColumn = 14;
         var expectedResult = "Honorificabili\ntudinitatibus";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
-    it('should replace having exactly an space in the boundary', function() {
+    it('should replace having an space exactly in the boundary', function() {
         var testString = "This is their favourite, with 3 lines";
-        var maxColumn = 14;
         var expectedResult = "This is their\nfavourite,\nwith 3 lines";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
-    it('should replace if there is an space after the boundary', function() {
+    it('should replace having an space exactly after the boundary', function() {
         var testString = "These are your favourites, with 3 lines";
-        var maxColumn = 14;
         var expectedResult = "These are your\nfavourites,\nwith 3 lines";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
     it('should have four lines, being the second longer than maxColumn', function() {
         var testString = "This case is Honorificabilitudinitatibus. For sure.";
-        var maxColumn = 14;
         var expectedResult = "This case is\nHonorificabili\ntudinitatibus.\nFor sure.";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
     it('should keep the short word in the first line, alone', function() {
         var testString = "Very honorificabilitudinitatibus. For sure.";
-        var maxColumn = 14;
         var expectedResult = "Very\nhonorificabili\ntudinitatibus.\nFor sure.";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
