@@ -44,4 +44,27 @@ describe('Wrapper Specs', function () {
         var expectedResult = "Very\nhonorificabili\ntudinitatibus.\nFor sure.";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
+    it('should return \'\' in case string is \'\'', function() {
+        var testString = "";
+        var expectedResult = "";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
+    it('should return \'error\' in case maxColum is 0', function() {
+        var maxColumn = 0;
+        var testString = "Very honorificabilitudinitatibus. For sure.";
+        var expectedResult = "error";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
+    it('should return \'error\' in case maxColum is not a number', function() {
+        var maxColumn = "not a number";
+        var testString = "Very honorificabilitudinitatibus. For sure.";
+        var expectedResult = "error";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
+    it('should return \'error\' in case testString is not a string', function() {
+        var maxColumn = 0;
+        var testString = 1;
+        var expectedResult = "error";
+        expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
+    });
 });
