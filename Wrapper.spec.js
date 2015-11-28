@@ -62,7 +62,6 @@ describe('Wrapper Specs', function () {
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
     });
     it('should return \'error\' in case testString is not a string', function() {
-        var maxColumn = 0;
         var testString = 1;
         var expectedResult = "error";
         expect(wrapper.wrap(testString, maxColumn)).to.equal(expectedResult);
