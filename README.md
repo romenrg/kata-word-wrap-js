@@ -14,9 +14,9 @@ If there are no spaces and the word is longer than the column number, the word s
 ## Running the program and tests
 
 ### Running the program
- * Executing node as *"node Wrapper"*
- * or, with npm as **"npm start"**
+ * Executing node as: "node Wrapper-cli *'text' columnNumber"*
+ * or, with npm as: **"npm start _'text' columnNumber_"**
 
 ### Running the tests
- * Executing mocha as "./node_modules/mocha/bin/mocha Wrapper.spec.js"
- * or, with npm as **"npm test"**
+ * Executing mocha as: "./node_modules/mocha/bin/mocha Wrapper.spec.js"
+ * or, with npm as: **"npm test"**

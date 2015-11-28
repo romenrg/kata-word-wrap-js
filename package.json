@@ -2,7 +2,7 @@
   "name": "KataWordWrapJS",
   "version": "0.1.0",
   "scripts": {
-    "start": "node Wrapper.js",
+    "start": "node Wrapper-cli.js",
     "test": "mocha ./Wrapper.spec.js"
   },
   "devDependencies": {
