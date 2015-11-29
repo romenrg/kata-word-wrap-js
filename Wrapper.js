@@ -21,16 +21,16 @@ function Wrapper() {
         if (this._areParamTypesValidForWrapFunction(text, columnNum)) {
             var tmpString = text;
             var newString = "";
-            var processing = {finished: false, lastBlankPos: null};
-            while (!processing.finished) {
-                processing = this._calculateLastBlankPos(tmpString, columnNum);
-                if ((!processing.finished) && (processing.lastBlankPos != null)) {
-                    newString = newString.concat(tmpString.substr(0, processing.lastBlankPos) + '\n');
-                    tmpString = tmpString.substr(processing.lastBlankPos+1, tmpString.length);
+            var processingState = {finished: false, lastBlankPos: null};
+            while (!processingState.finished) {
+                processingState = this._calculateLastBlankPos(tmpString, columnNum);
+                if ((!processingState.finished) && (processingState.lastBlankPos != null)) {
+                    newString = newString.concat(tmpString.substr(0, processingState.lastBlankPos) + '\n');
+                    tmpString = tmpString.substr(processingState.lastBlankPos+1, tmpString.length);
                 }
-                else if (processing.finished) {
+                else if (processingState.finished) {
                     newString = newString.concat(tmpString.substr(0, tmpString.length));
-                    processing.finished = true;
+                    processingState.finished = true;
                 }
                 else {
                     newString = newString.concat(tmpString.substr(0, columnNum) + '\n');
