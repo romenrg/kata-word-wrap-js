@@ -1,11 +1,11 @@
 var Wrapper = function() {
 };
 
-Wrapper.prototype._areParamTypesValidForWrapFunction = function(text, columnNum) {
+Wrapper._areParamTypesValidForWrapFunction = function(text, columnNum) {
         return (typeof(text) == "string") && (typeof(columnNum) == "number") && (columnNum > 0);
 };
 
-Wrapper.prototype._calculateLastBlankPos = function(text, columnNum) {
+Wrapper._calculateLastBlankPos = function(text, columnNum) {
     var finished = false;
     var lastBlankPos = null;
     for (var i=0; i<columnNum+1; i++) {
@@ -21,7 +21,7 @@ Wrapper.prototype._calculateLastBlankPos = function(text, columnNum) {
     return {finished: finished, lastBlankPos: lastBlankPos};
 };
 
-Wrapper.prototype._processingText = function(state, strings, columnNum) {
+Wrapper._processingText = function(state, strings, columnNum) {
     if ((!state.finished) && (state.lastBlankPos != null)) {
         strings.finalText = strings.finalText.concat(strings.tmpText.substr(0, state.lastBlankPos) + '\n');
         strings.tmpText = strings.tmpText.substr(state.lastBlankPos + 1, strings.tmpText.length);
@@ -36,7 +36,7 @@ Wrapper.prototype._processingText = function(state, strings, columnNum) {
     return strings;
 };
 
-Wrapper.prototype.wrap = function(text, columnNum) {
+Wrapper.wrap = function(text, columnNum) {
     if (this._areParamTypesValidForWrapFunction(text, columnNum)) {
         var strings = {tmpText: text, finalText: ""};
         var state = {finished: false, lastBlankPos: null};
