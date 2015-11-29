@@ -1,8 +1,10 @@
 function Wrapper() {
-    //TODO 1: refactoring the wrap function
-    this.wrap = function(string, columnNum) {
-        if ((typeof(string) == "string") && (typeof(columnNum) == "number") && (columnNum > 0)) {
-            var tmpString = string;
+    this._areParamTypesValidForWrapFunction = function(text, columnNum) {
+        return (typeof(text) == "string") && (typeof(columnNum) == "number") && (columnNum > 0);
+    };
+    this.wrap = function(text, columnNum) {
+        if (this._areParamTypesValidForWrapFunction(text, columnNum)) {
+            var tmpString = text;
             var newString = "";
             var finished = false;
             while (!finished) {
