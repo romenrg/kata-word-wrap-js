@@ -6,7 +6,7 @@ console.log("---------------------------------");
 var argv = process.argv.slice(2);
 var errorMessage = "ERROR: First argument should be 'text to process' and second 'number of columns'";
 if (argv.length == 2) {
-    var result = (new Wrapper()).wrap(argv[0], parseInt(argv[1]));
+    var result = Wrapper.wrap(argv[0], parseInt(argv[1]));
     if (result == "error") {
         console.log(errorMessage);
     }
